@@ -1,13 +1,13 @@
 package com.example.api.client;
 
 import com.example.api.model.Booking;
-import com.example.config.TestConfig;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
+import static com.example.config.TestConfig.apiBaseUrl;
 import static io.restassured.RestAssured.given;
 
 /**
@@ -16,7 +16,7 @@ import static io.restassured.RestAssured.given;
 public class BookingClient {
 
     private final RequestSpecification spec = new RequestSpecBuilder()
-            .setBaseUri(TestConfig.apiBaseUrl())
+            .setBaseUri(apiBaseUrl())
             .setContentType(ContentType.JSON)
             .setAccept("application/json")
             .addFilter(new AllureRestAssured())
