@@ -15,6 +15,7 @@ public abstract class BaseUiTest {
     @BeforeAll
     static void setUp() {
         Configuration.baseUrl = TestConfig.uiBaseUrl();
+        Configuration.browserCapabilities.setCapability("webSocketUrl", true);
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 

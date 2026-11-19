@@ -26,6 +26,15 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- Selenium BOM: Selenide 7.19 brings Selenium 4.51.0 (DevTools up to Chrome 155), 4.53.0 supports Chrome 157.
+                 Remove it when a Selenide release ships Selenium 4.53.0 or newer -->
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-bom</artifactId>
+                <version>4.53.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -74,6 +83,13 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-rest-assured</artifactId>
             <version>${allure.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Logging backend: Selenide and Allure log through the SLF4J API, without a backend their messages are dropped -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.20</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
